@@ -1,18 +1,14 @@
-import { Unpublished } from "@mui/icons-material";
 import { Skeleton } from "@mui/material";
 import React from "react";
 import CountUp from "react-countup";
-import {
-  FaArrowAltCircleDown,
-  FaArrowAltCircleUp,
-  FaArrowUp,
-} from "react-icons/fa";
+import { FaArrowUp } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineTrendingDown, MdOutlineTrendingUp } from "react-icons/md";
 
 const ProductReportCard = ({
   published,
-  UnPublished,borderColor,
+  UnPublished,
+  borderColor,
   overAllPercentageData,
   name,
   cardIcon,
@@ -22,19 +18,10 @@ const ProductReportCard = ({
 }) => {
   const loading = !true;
   const dispatch = useDispatch();
-  const selectedTheme = useSelector((state) => state.theme.SelectedTheme);
   // const total = (+published || 0) + (+UnPublished || 0);
   console.log(loading);
   return (
-    <div
-      className={`${
-        selectedTheme === "Yellow Majestic"
-          ? "bg-[#FEBD59] backdrop-filter backdrop-blur-lg bg-opacity-70"
-          : selectedTheme === "modern reeloid"
-          ? "bg-black/40 backdrop-blur-lg "
-          : "bg-white text-black"
-      }  flex flex-col gap-4 p-4 rounded`}
-    >
+    <div className={`bg-white text-black  flex flex-col gap-4 p-4 rounded`}>
       <div className="flex justify-between">
         <div className="px-2 text-sm font-semibold text-gray-500 ">
           {!loading ? (
@@ -72,9 +59,7 @@ const ProductReportCard = ({
           </div>
         </div>
         {!loading ? (
-          <div
-            className={`p-2 ${borderColor} h-fit rounded-md`}
-          >
+          <div className={`p-2 ${borderColor} h-fit rounded-md`}>
             <img src={cardIcon} className="h-[35px] w-[35px]"></img>
           </div>
         ) : (

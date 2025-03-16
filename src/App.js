@@ -14,7 +14,6 @@ import IconScreenSideBar from "./components/Sidebar/iconScreenSideBar";
 import { adminRoutes } from "./routes/adminRoutes";
 import { userRoutes } from "./routes/userRoutes";
 function App() {
-  const selectedTheme = useSelector((state) => state.theme.SelectedTheme);
   const isLoggedIn = useSelector((state) => state.loginData.loggedIn);
   const [role, setRole] = useState(localStorage.getItem("role"));
   const dispatch = useDispatch();
@@ -36,16 +35,7 @@ function App() {
     // setIsLoggedIn(true);
   };
   return (
-    <div
-      className={` w-[100vw] h-[100vh] ${
-        selectedTheme === "modern reeloid" ? "bgImg" : "bg-[#222736]"
-      }`}
-      style={
-        selectedTheme === "modern reeloid"
-          ? { backgroundImage: `url(${bgImg})` }
-          : undefined
-      }
-    >
+    <div className={` w-[100vw] h-[100vh] `}>
       {isLoggedIn ? (
         <>
           {" "}
