@@ -1,0 +1,32 @@
+{
+  "Product Stock": "Stock de Productos",
+  "search product name": "Buscar nombre de producto",
+  "Category": "Categoría",
+  "Price": "Precio",
+  "Piece": "Pieza",
+  "Available Color": "Color Disponible",
+  "Action": "Acción",
+  "Image": "Imagen",
+  "Product Name": "Nombre del producto",
+  "DashBoard": "Tablero",
+  "Dashboard": "Tablero",
+  "Products": "Productos",
+  "Total User": "Usuarios Totales",
+  "Total Order": "Pedidos Totales",
+  "Total Sales": "Ventas Totales",
+  "Total Pending": "Pendiente Total",
+  "from yesterday": "desde ayer",
+  "from past week": "desde la semana pasada",
+  "Sales Details": "Détails des ventes",
+  "Deals Details": "Detalles de Ofertas",
+  "October": "Octubre",
+  "November": "Noviembre",
+
+  "Location": "Ubicación",
+  "Date - Time": "Fecha - Hora",
+
+  "Amount": "Cantidad",
+  "Status": "Estado",
+  "Delivered": "Entregado",
+  "Logout": "Cerrar sesión"
+}
