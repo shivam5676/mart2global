@@ -14,9 +14,9 @@ const ProductReportCard = ({
   cardIcon,
   total,
   compareTo,
-  // loading,
+  loading,
 }) => {
-  const loading = !true;
+  // const loading = !true;
   const dispatch = useDispatch();
   // const total = (+published || 0) + (+UnPublished || 0);
   console.log(loading);
@@ -51,7 +51,7 @@ const ProductReportCard = ({
                 />
               </p>
             )}
-            {total > 0 && (
+            {total > 0 &&!loading&& (
               <div className="flex items-center px-2">
                 <FaArrowUp className="text-green-500" />
               </div>

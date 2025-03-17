@@ -17,57 +17,17 @@ import {
 import SalesChart from "./Saleschart";
 import DealsTable from "./DealsTable";
 import { useTranslation } from "react-i18next";
-import { t } from "i18next";
 
 const DashBoard = () => {
-  const [cardsData, setCardsData] = useState({});
+  const [cardsData, setCardsData] = useState(true);
 
-  const [fetchingType, setFetchingType] = useState("All");
   const { t, i18n } = useTranslation();
   useEffect(() => {
-    async function fetchDashboardData() {
-      try {
-        const data = await fetchDashboardDataApi(fetchingType);
-        setCardsData(data);
-      } catch (error) {}
-    }
+    setTimeout(() => {
+      setCardsData(false);
+    }, 1500);
+  }, []);
 
-    fetchDashboardData();
-  }, [fetchingType]);
-  useEffect(() => {
-    async function fetchTopContentData() {
-      try {
-        const data = await fetchTopContentDataApi(fetchingType);
-        setTop3data(data);
-      } catch (error) {}
-    }
-    fetchTopContentData();
-  }, [fetchingType]);
-  useEffect(() => {
-    async function fetchContentViews() {
-      try {
-        const data = await fetchContentViewsApi(fetchingType);
-        if (data) {
-          setContentViews(data);
-        }
-      } catch (error) {}
-    }
-    fetchContentViews();
-  }, [fetchingType]);
-  useEffect(() => {
-    async function fetchLAtestUSers() {
-      try {
-        const data = await fetchLatestUsersApi(fetchingType);
-        setLatestUsers(data);
-      } catch (error) {}
-    }
-    fetchLAtestUSers();
-  }, [fetchingType]);
-
-  const handleSelectChange = (data) => {
-    console.log(data);
-    setFetchingType(data);
-  };
   return (
     <div className=" w-[100%] h-[calc(100vh-70px)] overflow-y-scroll customScrollbar px-4 py-2 bg-gray-200">
       <div className={` px-2 py-2 `}>
@@ -82,7 +42,7 @@ const DashBoard = () => {
             total={40689}
             overAllPercentageData={10}
             compareTo={t("from yesterday")}
-            loading={cardsData && Object.values(cardsData).length == 0}
+            loading={cardsData}
             borderColor={"bg-blue-100"}
           />
 
@@ -92,7 +52,7 @@ const DashBoard = () => {
             total={600}
             overAllPercentageData={6.7}
             compareTo={t("from past week")}
-            loading={cardsData && Object.values(cardsData).length == 0}
+            loading={cardsData}
             borderColor={"bg-yellow-100"}
           />
           <ProductReportCard
@@ -101,7 +61,7 @@ const DashBoard = () => {
             total={99}
             overAllPercentageData={-2.4}
             compareTo={t("from yesterday")}
-            loading={cardsData && Object.values(cardsData).length == 0}
+            loading={cardsData}
             borderColor={"bg-green-100"}
           />
           <ProductReportCard
@@ -110,17 +70,17 @@ const DashBoard = () => {
             total={286}
             overAllPercentageData={4}
             compareTo={t("from yesterday")}
-            loading={cardsData && Object.values(cardsData).length == 0}
+            loading={cardsData}
             borderColor={"bg-red-100"}
           />
         </section>
 
         <section className="w-[100%]   py-2 ">
           {" "}
-          <SalesChart />
+          <SalesChart loading={cardsData} />
         </section>
 
-        <DealsTable />
+        <DealsTable loading={cardsData}/>
       </div>
     </div>
   );

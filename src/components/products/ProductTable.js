@@ -115,7 +115,7 @@ const ProductTable = () => {
           <input
             placeholder={t("search product name")}
             className="bg-transparent text-gray-500 px-2 outline-none"
-            value={searchValue} // Controlled component
+            value={searchValue} 
             onChange={(e) => setSearchValue(e.target.value)}
           ></input>
         </div>

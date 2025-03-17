@@ -21,8 +21,6 @@ import { loginSliceAction } from "../../store/loginSlice";
 import { AiOutlineDashboard, AiOutlineProduct } from "react-icons/ai";
 
 const IconScreenSideBar = () => {
-  const dispatch = useDispatch();
-  const selectedTheme = useSelector((state) => state.theme.SelectedTheme);
   const menuRefs = useRef([]);
   const [hoveredItem, setHoveredItem] = useState(null);
   const item = ["menu item", "close item"];
@@ -38,7 +36,7 @@ const IconScreenSideBar = () => {
       height: rect.height,
     });
   };
-  console.log(position);
+const dispatch=useDispatch()
   const menuItems = [
     {
       title: "Dashboard",
@@ -53,6 +51,16 @@ const IconScreenSideBar = () => {
         <AiOutlineProduct className="h-[20px] w-[20px] text-black group-hover:text-blue-500" />
       ),
       subItems: [{ name: "Products", navigateTo: "/products" }],
+    },
+    {
+      title: "Logout",
+      icon: (
+        <AiOutlineProduct className="h-[20px] w-[20px] text-black group-hover:text-blue-500" />
+      ),
+      subItems: [{ name: "Logout", fn: ()=>{
+                   localStorage.removeItem("user");
+                    dispatch(loginSliceAction.logOut());
+      } }],
     },
     // Add more items as needed AiOutlineProduct
   ];

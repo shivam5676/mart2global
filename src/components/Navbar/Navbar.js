@@ -1,16 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-// import iosLogo from "../assests/IOS-Logo-white.png";
-// import logo from "../assests/logo.png"
-import logoIcon from "../../assests/mobile.png";
-import logo from "../../assests/reeloid-logo.png";
 
 import { CgMenu } from "react-icons/cg";
-import { FiSend } from "react-icons/fi";
-import { IoMdAddCircleOutline } from "react-icons/io";
-import { FaRegUserCircle } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
 import useWindowSize from "./../../customHooks/useWindowSize";
-import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Badge from "@mui/material/Badge";
@@ -67,7 +59,6 @@ const Navbar = (props) => {
         <div
           className={`flex flex-shrink-0 w-[240px]  text-black  h-[100%] items-center justify-center font-bold text-2xl`}
         >
-          {/* <img src={logo} className="mt-3 w-[150px] h-[75%]"></img> */}
           <span className="text-blue-500">{t("Dash")}</span>
           <span className="text-black">{t("Stack")}</span>
         </div>
@@ -141,7 +132,7 @@ const Navbar = (props) => {
                   {t("Shivam Singh")}{" "}
                 </Typography>
                 <Typography fontSize={12} color="gray">
-                  Admin
+                  {localStorage.getItem("role")}
                 </Typography>
               </Box>
             )}
